@@ -41,9 +41,26 @@ public class UsuarioModel {
 
 	private String foto;
 
+	private String tipo;
+
 	@OneToMany(mappedBy = "postagens", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties({ "postagens" })
 	private List<PostagemModel> temaPostagem = new ArrayList<>();
+
+	public UsuarioModel(Long id, String usuarioModel, String nome, String senha, String tipo, String foto) {
+
+		this.id = id;
+		this.nome = nome;
+		this.usuarioModel = usuarioModel;
+		this.senha = senha;
+		this.tipo = tipo;
+		this.foto = foto;
+
+	}
+
+	public UsuarioModel() {
+
+	}
 
 	public Long getId() {
 		return id;
@@ -61,6 +78,14 @@ public class UsuarioModel {
 		this.nome = nome;
 	}
 
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
 	public String getUsuarioModel() {
 		return usuarioModel;
 	}
@@ -76,6 +101,7 @@ public class UsuarioModel {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
 	public String getFoto() {
 		return foto;
 	}

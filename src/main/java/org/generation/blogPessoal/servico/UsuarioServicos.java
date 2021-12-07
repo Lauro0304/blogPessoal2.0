@@ -74,6 +74,8 @@ public class UsuarioServicos {
 				usuario.get().setNome(usuarioModel.get().getNome());
 
 				usuario.get().setSenha(usuarioModel.get().getSenha());
+				
+				usuario.get().setTipo(usuarioModel.get().getTipo());
 
 				usuario.get().setToken(generatorBasicToken(usuario.get().getUsuario(), usuario.get().getSenha()));
 
