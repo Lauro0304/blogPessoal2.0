@@ -38,10 +38,11 @@ public class UsuarioController {
 	public ResponseEntity<UsuarioModel> getById(@PathVariable Long id) {
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
+	
 
 	@PostMapping("/logar")
-	public ResponseEntity<UsuarioModel> Autentication(@ Valid @RequestBody Optional<UsuarioLoginModel> usuario) {
-		return usuarioServicos.Logar(usuario).map(resp -> ResponseEntity.ok(resp))
+	public ResponseEntity<UsuarioLoginModel> Autentication(@Valid @RequestBody Optional<UsuarioLoginModel> usuario) {
+		return usuarioServicos.logarUsuario(usuario).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 
 	}

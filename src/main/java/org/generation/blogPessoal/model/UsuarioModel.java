@@ -47,6 +47,12 @@ public class UsuarioModel {
 	@JsonIgnoreProperties({ "postagens" })
 	private List<PostagemModel> temaPostagem = new ArrayList<>();
 
+	@Deprecated
+	public UsuarioModel() {
+		super();
+
+	}
+
 	public UsuarioModel(Long id, String usuarioModel, String nome, String senha, String tipo, String foto) {
 
 		this.id = id;
@@ -55,10 +61,6 @@ public class UsuarioModel {
 		this.senha = senha;
 		this.tipo = tipo;
 		this.foto = foto;
-
-	}
-
-	public UsuarioModel() {
 
 	}
 
